@@ -18,10 +18,11 @@ jobs:
 
       - name: Build com Maven
         run: mvn clean package -DskipTests=true
-        working-directory: ./unipdi-notificacao
+        #working-directory: ./unipdi-notificacao
 
       - name: Renomear arquivo jar
         run: mv target/unipdi-notificacao-1.0-SNAPSHOT.jar target/unipdi-notificacao.jar
+        #working-directory: ./unipdi-notificacao
 
       - name: Configurar Credentials da AWS
         uses: aws-actions/configure-aws-credentials@v4
@@ -34,5 +35,5 @@ jobs:
         run: |
           aws lambda update-function-code \
             --function-name unipdi-notificacao \
-            --zip-file fileb://target/unipdi-notificacao.jar
+            --zip-file fileb://target/unipdi-notificacao.jar \
             --publish
