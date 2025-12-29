@@ -18,6 +18,7 @@ jobs:
 
       - name: Build com Maven
         run: mvn clean package -DskipTests=true
+        working-directory: ./unipdi-notificacao
 
       - name: Renomear arquivo jar
         run: mv target/unipdi-notificacao-1.0-SNAPSHOT.jar target/unipdi-notificacao.jar
