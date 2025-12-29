@@ -1,0 +1,37 @@
+name: Deploy app notificação na AWS
+
+on: [push]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do projeto
+        uses: actions/checkout@v3
+
+      - name: Setup do Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: "temurin"
+          java-version: "21"
+
+      - name: Build com Maven
+        run: mvn clean package -DskipTests=true
+
+      - name: Renomear arquivo jar
+        run: mv target/unipdi-notificacao-1.0-SNAPSHOT.jar target/unipdi-notificacao.jar
+
+      - name: Configurar Credentials da AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: sa-east-1
+
+      - name: Deploy na AWS
+        run: |
+          aws lambda update-function-code \
+            --function-name unipdi-notificacao \
+            --zip-file fileb://target/unipdi-notificacao.jar
+            --publish
