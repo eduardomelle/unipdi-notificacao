@@ -10,7 +10,7 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Build com Maven') {
+        /*stage('Build com Maven') {
             steps {
                 // dir('unipdi-notificacao') {
                     // bat 'mvn -B clean package -DskipTests'
@@ -35,6 +35,6 @@ pipeline {
                     }
                 // }
             }
-        }
+        }*/
     }
 }
