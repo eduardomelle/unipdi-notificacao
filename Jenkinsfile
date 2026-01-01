@@ -37,7 +37,8 @@ pipeline {
                         // bat 'aws lambda update-function-code --function-name unipdi-notificacao --zip-file fileb://target\\\\unipdi-notificacao.jar --publish --region %AWS_REGION%'
                         // sh 'aws lambda update-function-code --function-name unipdi-notificacao --zip-file fileb://target\\\\unipdi-notificacao.jar --publish --region %AWS_REGION%'
                         // sh '/usr/local/bin/aws lambda update-function-code --function-name unipdi-notificacao --zip-file fileb://target/unipdi-notificacao-1.0-SNAPSHOT.jar --publish --region %AWS_REGION%'
-                        sh '/usr/local/bin/aws lambda update-function-code --function-name unipdi-notificacao --zip-file fileb://unipdi-notificacao.jar --publish --region %AWS_REGION%'
+                        // sh '/usr/local/bin/aws lambda update-function-code --function-name unipdi-notificacao --zip-file fileb://unipdi-notificacao.jar --publish --region %AWS_REGION%'
+                        sh '/usr/local/bin/aws lambda update-function-code --function-name unipdi-notificacao --zip-file fileb://unipdi-notificacao.jar --publish --region sa-east-1'
                     }
                 // }
             }
