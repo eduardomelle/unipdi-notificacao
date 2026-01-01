@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven 3.9.12'
+        maven 'Default'
     }
     environment {
         AWS_REGION = 'sa-east-1'
