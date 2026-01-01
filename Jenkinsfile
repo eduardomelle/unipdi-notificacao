@@ -30,7 +30,7 @@ pipeline {
                 // }
             }
         }
-        /*stage('Deploy na AWS') {
+        stage('Deploy na AWS') {
             steps {
                 // dir('unipdi-notificacao') {
                     withCredentials([usernamePassword(credentialsId: 'aws-creds', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
@@ -39,6 +39,6 @@ pipeline {
                     }
                 // }
             }
-        }*/
+        }
     }
 }
