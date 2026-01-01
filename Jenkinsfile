@@ -25,7 +25,8 @@ pipeline {
             steps {
                 // dir('unipdi-notificacao') {
                     // bat 'ren target\\unipdi*.jar unipdi-notificacao.jar'
-                    sh 'ren target\\unipdi*.jar unipdi-notificacao.jar'
+                    // sh 'ren target\\unipdi*.jar unipdi-notificacao.jar'
+                    sh 'mv target\\unipdi*.jar unipdi-notificacao.jar'
                 // }
             }
         }
