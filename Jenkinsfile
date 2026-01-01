@@ -13,14 +13,16 @@ pipeline {
         stage('Build com Maven') {
             steps {
                 // dir('unipdi-notificacao') {
-                    bat 'mvn -B clean package -DskipTests'
+                    // bat 'mvn -B clean package -DskipTests'
+                    sh 'mvn -B clean package -DskipTests'
                 // }
             }
         }
         stage('Renomear JAR') {
             steps {
                 // dir('unipdi-notificacao') {
-                    bat 'ren target\\unipdi*.jar unipdi-notificacao.jar'
+                    // bat 'ren target\\unipdi*.jar unipdi-notificacao.jar'
+                    sh 'ren target\\unipdi*.jar unipdi-notificacao.jar'
                 // }
             }
         }
@@ -28,7 +30,8 @@ pipeline {
             steps {
                 // dir('unipdi-notificacao') {
                     withCredentials([usernamePassword(credentialsId: 'aws-creds', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
-                        bat 'aws lambda update-function-code --function-name unipdi-notificacao --zip-file fileb://target\\\\unipdi-notificacao.jar --publish --region %AWS_REGION%'
+                        // bat 'aws lambda update-function-code --function-name unipdi-notificacao --zip-file fileb://target\\\\unipdi-notificacao.jar --publish --region %AWS_REGION%'
+                        sh 'aws lambda update-function-code --function-name unipdi-notificacao --zip-file fileb://target\\\\unipdi-notificacao.jar --publish --region %AWS_REGION%'
                     }
                 // }
             }
