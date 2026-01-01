@@ -10,7 +10,7 @@ pipeline {
                 checkout scm
             }
         }
-        /*stage('Build com Maven') {
+        stage('Build com Maven') {
             steps {
                 // dir('unipdi-notificacao') {
                     // bat 'mvn -B clean package -DskipTests'
@@ -18,7 +18,7 @@ pipeline {
                 // }
             }
         }
-        stage('Renomear JAR') {
+        /*stage('Renomear JAR') {
             steps {
                 // dir('unipdi-notificacao') {
                     // bat 'ren target\\unipdi*.jar unipdi-notificacao.jar'
