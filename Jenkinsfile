@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven-3.6.3' // Nome da instalação do Maven configurada no Jenkins
+        maven 'Maven-3.9.12' // Nome da instalação do Maven configurada no Jenkins
     }
     environment {
         AWS_REGION = 'sa-east-1'
